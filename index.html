@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<title>Nearshore RCM Teams for US Healthcare Organizations | NearshoreRCM</title>
+<meta name="description" content="Dedicated nearshore revenue cycle, coding, and credentialing teams for US healthcare organizations — lower fully-loaded cost per seat, on US working hours.">
+<link rel="canonical" href="https://nearshorercm.com/">
+<meta property="og:title" content="NearshoreRCM — Lower the Cost of Your Revenue Cycle">
+<meta property="og:description" content="Dedicated nearshore revenue cycle teams for US healthcare organizations. Reduce fully-loaded RCM cost without leaving your time zone.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nearshorercm.com/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700;800;900&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "NearshoreRCM",
+  "url": "https://nearshorercm.com",
+  "description": "Nearshore revenue cycle management, medical coding, credentialing, and healthcare operations teams delivered from Colombia and the Dominican Republic for US healthcare organizations.",
+  "areaServed": "United States",
+  "knowsAbout": ["Revenue cycle management", "Medical billing", "Medical coding", "Denial management", "Prior authorization", "Medical credentialing", "Healthcare analytics"]
+}
+</script>
+<style>
+/* ==========================================================
+   NEARSHORERCM v5 — "CLAIM FORM" DESIGN SYSTEM (v2 skin)
+   Vernacular: CMS-1500 / EOB / remittance paperwork.
+   Paper, ink, form-red rules, typewriter data, rubber stamps.
+   No rounded corners. No soft shadows. Hard rules only.
+   Content: brief-aligned (enterprise ICP, service ladder,
+   cost-reduction positioning, no unverified savings claims).
+   ========================================================== */
+:root{
+  --desk:#DAE0E7;          /* cool light desk */
+  --paper:#FCFBF6;         /* warm bright sheet */
+  --paper2:#F2EFE3;        /* warm manila block */
+  --ink:#1B2432;           /* slate-navy ink */
+  --ink-soft:#5A6472;
+  --red:#3D6DA6;           /* soft steel blue — structural accent (var name kept for minimal churn) */
+  --red-soft:#A9C3DE;
+  --red-tint:#E8F0F8;
+  --denial:#C0603E;        /* muted coral — denial & cost semantics ONLY */
+  --denial-tint:#F7ECE5;
+  --green:#1F7A4D;         /* PAID stamp green */
+  --green-tint:#E5F2EA;
+  --rule:#1B2432;          /* heavy rule */
+  --rule-lt:#CDD2C9;       /* light rule */
+  --franklin:'Libre Franklin', 'Franklin Gothic Medium', Arial, sans-serif;
+  --type:'Courier Prime', 'Courier New', monospace;
+  --maxw:1060px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+}
+body{
+  font-family:var(--franklin);
+  background:var(--desk);
+  color:var(--ink);
+  font-size:16px;line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--red);color:#fff}
+a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
+a:hover{background:var(--red);color:#fff;text-decoration:none}
+:focus-visible{outline:3px solid var(--red);outline-offset:2px}
+.type{font-family:var(--type)}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* ---------- The sheet ---------- */
+.sheet{
+  max-width:var(--maxw);margin:0 auto;background:var(--paper);
+  border-left:1px solid var(--rule-lt);border-right:1px solid var(--rule-lt);
+  position:relative;
+}
+.sheet::before,.sheet::after{content:"";position:absolute;width:18px;height:18px;pointer-events:none}
+.sheet::before{top:10px;left:10px;border-top:2px solid var(--ink);border-left:2px solid var(--ink)}
+.sheet::after{top:10px;right:10px;border-top:2px solid var(--ink);border-right:2px solid var(--ink)}
+.pad{padding:0 56px}
+@media(max-width:760px){.pad{padding:0 22px}}
+
+/* ---------- Nav: the form header band ---------- */
+.band{position:sticky;top:0;z-index:60;background:var(--ink);color:var(--paper);border-bottom:3px solid var(--red)}
+.band-in{max-width:var(--maxw);margin:0 auto;display:flex;align-items:stretch;justify-content:space-between;min-height:58px}
+.band-logo{
+  display:flex;align-items:center;gap:12px;padding:0 22px 0 56px;color:var(--paper);text-decoration:none;
+  font-weight:900;letter-spacing:.06em;font-size:.95rem;text-transform:uppercase;
+}
+.band-logo:hover{background:transparent;color:var(--paper)}
+.band-logo .formno{font-family:var(--type);font-weight:400;font-size:.66rem;letter-spacing:.08em;opacity:.7;border:1px solid rgba(252,251,245,.4);padding:3px 7px}
+@media(max-width:560px){.band-logo .formno{display:none}}
+.band-nav{display:flex;align-items:stretch}
+.band-nav a{
+  display:flex;align-items:center;padding:0 15px;color:var(--paper);text-decoration:none;
+  font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;border-left:1px solid rgba(252,251,245,.18);
+}
+.band-nav a:hover{background:var(--red);color:#fff}
+.band-cta{background:var(--red)}
+.band-cta:hover{background:#2B5480 !important}
+.menu-btn{display:none;background:none;border:1px solid rgba(252,251,245,.4);color:var(--paper);padding:8px 14px;margin:9px 22px;font-family:var(--franklin);font-weight:700;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+@media(max-width:760px){.band-logo{padding:0 22px}}
+@media(max-width:960px){
+  .band-nav{display:none;position:absolute;top:100%;left:0;right:0;background:var(--ink);flex-direction:column;border-bottom:3px solid var(--red)}
+  .band-nav.open{display:flex}
+  .band-nav a{padding:15px 22px;border-left:none;border-top:1px solid rgba(252,251,245,.18)}
+  .menu-btn{display:block}
+}
+
+/* ---------- Section = form box ---------- */
+.box{border-top:3px double var(--rule);padding:52px 0 64px}
+.box:first-of-type{border-top:none}
+.boxhead{display:flex;align-items:baseline;gap:14px;margin-bottom:10px;flex-wrap:wrap}
+.boxno{font-family:var(--type);font-weight:700;font-size:.8rem;color:#fff;background:var(--red);padding:3px 9px;letter-spacing:.06em;flex-shrink:0}
+.boxtitle{font-weight:900;text-transform:uppercase;letter-spacing:.02em;font-size:clamp(1.4rem,3.1vw,2.1rem);line-height:1.08}
+.boxsub{font-family:var(--type);font-size:.78rem;color:var(--ink-soft);letter-spacing:.02em;margin-bottom:26px;text-transform:uppercase}
+.lede{font-size:1.02rem;color:var(--ink-soft);max-width:74ch;margin-bottom:8px}
+.lede b{color:var(--ink)}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-block;font-family:var(--franklin);font-weight:800;font-size:.78rem;
+  letter-spacing:.12em;text-transform:uppercase;text-decoration:none;cursor:pointer;
+  padding:14px 26px;border:2px solid var(--ink);color:var(--ink);background:var(--paper);
+  box-shadow:4px 4px 0 var(--ink);transition:transform .1s, box-shadow .1s;
+}
+.btn:hover{background:var(--paper);color:var(--ink);transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--ink)}
+.btn.red{background:var(--red);border-color:var(--red);color:#fff;box-shadow:4px 4px 0 var(--ink)}
+.btn.red:hover{background:#2B5480;border-color:#2B5480;color:#fff}
+.btn.onink{background:var(--paper);border-color:var(--paper);color:var(--ink);box-shadow:4px 4px 0 var(--red)}
+.btn.onink:hover{background:var(--paper);color:var(--ink)}
+
+/* ---------- Rubber stamps ---------- */
+.stamp{
+  display:inline-block;font-weight:900;text-transform:uppercase;letter-spacing:.14em;
+  border:3px solid currentColor;padding:6px 14px;transform:rotate(-3deg);
+  font-size:.8rem;line-height:1.2;
+}
+.stamp.green{color:var(--green)}
+.stamp.red{color:var(--red)}
+.stamp.big{font-size:1.1rem;padding:10px 20px;border-width:4px}
+
+/* ---------- HERO ---------- */
+.hero{padding-top:52px}
+.hero-meta{
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-family:var(--type);font-size:.68rem;letter-spacing:.06em;color:var(--ink-soft);
+  text-transform:uppercase;border-bottom:2px solid var(--rule);padding-bottom:12px;margin-bottom:38px;
+}
+.hero h1{
+  font-weight:900;text-transform:uppercase;letter-spacing:-.005em;
+  font-size:clamp(2.2rem,6vw,4.1rem);line-height:.98;max-width:16ch;
+}
+.hero h1 .redline{color:var(--red)}
+.hero .lede{font-size:1.1rem;margin-top:22px;max-width:66ch}
+.hero-ctas{display:flex;gap:18px;margin:32px 0 10px;flex-wrap:wrap;align-items:center}
+.hero-fields{display:grid;grid-template-columns:repeat(3,1fr);border:2px solid var(--rule);margin-top:38px}
+@media(max-width:660px){.hero-fields{grid-template-columns:1fr}}
+.hfield{padding:16px 18px 14px;border-right:1px solid var(--rule)}
+.hfield:last-child{border-right:none}
+@media(max-width:660px){.hfield{border-right:none;border-bottom:1px solid var(--rule)}.hfield:last-child{border-bottom:none}}
+.hfield .lab{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:6px}
+.hfield b{font-family:var(--type);font-weight:700;font-size:1.4rem;letter-spacing:-.02em}
+.hfield b.crl{color:var(--denial)}
+.hfield b.grn{color:var(--green)}
+.hfield span{display:block;font-size:.74rem;color:var(--ink-soft);margin-top:3px}
+
+/* Time verification clocks */
+.clockrow{display:grid;grid-template-columns:repeat(3,1fr) 1.3fr;border:2px solid var(--rule);border-top:none}
+@media(max-width:860px){.clockrow{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.clockrow{grid-template-columns:1fr}}
+.clk{padding:14px 18px 12px;border-right:1px solid var(--rule)}
+.clk:last-child{border-right:none}
+@media(max-width:860px){.clk:nth-child(2){border-right:none}}
+@media(max-width:560px){.clk{border-right:none;border-bottom:1px solid var(--rule)}.clk:last-child{border-bottom:none}}
+.clk .lab{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:4px}
+.clk .t{font-family:var(--type);font-weight:700;font-size:1.2rem;font-variant-numeric:tabular-nums}
+.clk .t small{font-family:var(--type);font-weight:400;font-size:.66rem;color:var(--green);margin-left:5px}
+.clk.note{display:flex;align-items:center;background:var(--paper2)}
+.clk.note p{font-family:var(--type);font-size:.74rem;color:var(--ink-soft)}
+.clk.note b{color:var(--green)}
+
+/* ---------- Claims register (signature) ---------- */
+.register{border:2px solid var(--rule);margin-top:38px}
+.reg-head{
+  display:flex;justify-content:space-between;align-items:center;gap:10px;
+  background:var(--ink);color:var(--paper);padding:10px 16px;
+  font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+}
+.reg-head .type{font-weight:400;opacity:.75;letter-spacing:.06em}
+.reg-cols,.reg-row{display:grid;grid-template-columns:110px 76px 1fr 100px 130px;gap:0;align-items:center}
+.reg-cols{font-size:.6rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;border-bottom:2px solid var(--rule);background:var(--paper2)}
+.reg-cols span{padding:8px 12px;border-right:1px solid var(--rule-lt)}
+.reg-cols span:last-child{border-right:none}
+.reg-rows{min-height:265px;display:flex;flex-direction:column}
+.reg-row{font-family:var(--type);font-size:.78rem;border-bottom:1px solid var(--rule-lt)}
+.reg-row>span{padding:9px 12px;border-right:1px solid var(--rule-lt);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.reg-row>span:last-child{border-right:none}
+.reg-row .amt{text-align:right}
+.reg-row .st{display:flex;justify-content:center;padding:5px 6px}
+.ministamp{
+  font-family:var(--franklin);font-weight:900;font-size:.56rem;letter-spacing:.12em;text-transform:uppercase;
+  border:2px solid currentColor;padding:2px 7px;transform:rotate(-2deg);
+}
+.ministamp.paid{color:var(--green)}
+.ministamp.denied{color:var(--denial)}
+.ministamp.appealed{color:var(--ink-soft)}
+.ministamp.slam{animation:slam .3s ease-out}
+@keyframes slam{0%{transform:rotate(-2deg) scale(1.7);opacity:0}70%{transform:rotate(-2deg) scale(.95);opacity:1}100%{transform:rotate(-2deg) scale(1)}}
+.reg-foot{
+  display:flex;justify-content:space-between;gap:10px;padding:10px 16px;border-top:2px solid var(--rule);
+  font-family:var(--type);font-size:.7rem;color:var(--ink-soft);
+}
+.reg-foot b{color:var(--green);font-weight:700}
+@media(max-width:660px){
+  .reg-cols,.reg-row{grid-template-columns:96px 1fr 104px}
+  .reg-cols .c-code,.reg-cols .c-payer,.reg-row .code,.reg-row .payer{display:none}
+}
+
+/* ---------- Pain: denial notices ---------- */
+.notices{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--rule);margin-top:38px}
+@media(max-width:860px){.notices{grid-template-columns:1fr}}
+.notice{padding:26px 24px;border-right:1px solid var(--rule)}
+.notice:last-child{border-right:none}
+@media(max-width:860px){.notice{border-right:none;border-bottom:1px solid var(--rule)}.notice:last-child{border-bottom:none}}
+.notice .code{font-family:var(--type);font-size:.68rem;font-weight:700;color:var(--denial);letter-spacing:.06em;text-transform:uppercase;display:block;margin-bottom:12px}
+.notice h3{font-weight:800;text-transform:uppercase;letter-spacing:.02em;font-size:1.02rem;margin-bottom:10px}
+.notice p{font-size:.9rem;color:var(--ink-soft)}
+
+/* ---------- EOB tables ---------- */
+.eob{border:2px solid var(--rule);margin-top:38px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:520px}
+th,td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--rule-lt);vertical-align:top}
+thead th{background:var(--ink);color:var(--paper);font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;border-bottom:2px solid var(--rule)}
+td.num{text-align:right;font-family:var(--type);white-space:nowrap}
+td .dim{color:var(--ink-soft);font-family:var(--franklin);font-size:.8rem}
+tr:last-child td{border-bottom:none}
+tr.total td{background:var(--denial-tint);border-top:2px solid var(--rule);font-weight:800;text-transform:uppercase;font-size:.85rem;letter-spacing:.04em}
+tr.total td.num{font-family:var(--type);font-weight:700;font-size:1.1rem;color:var(--denial)}
+.src{font-family:var(--type);font-size:.72rem;color:var(--ink-soft);margin-top:12px;max-width:92ch;line-height:1.7}
+
+/* ---------- Worksheet (benchmark tool) ---------- */
+.worksheet{border:2px solid var(--rule);margin-top:38px}
+.ws-head{background:var(--paper2);border-bottom:2px solid var(--rule);padding:12px 20px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}
+.ws-head b{font-size:.72rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.ws-head span{font-family:var(--type);font-size:.66rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em}
+.ws-grid{display:grid;grid-template-columns:1fr 1fr}
+@media(max-width:860px){.ws-grid{grid-template-columns:1fr}}
+.ws-in{padding:28px 26px;border-right:2px solid var(--rule)}
+@media(max-width:860px){.ws-in{border-right:none;border-bottom:2px solid var(--rule)}}
+.ws-out{padding:28px 26px;background:var(--paper2)}
+.field{margin-bottom:22px}
+.field>label{display:flex;justify-content:space-between;gap:10px;font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.field output{font-family:var(--type);font-weight:700;color:var(--red);text-transform:none;letter-spacing:0;font-size:.8rem}
+select{
+  width:100%;padding:11px 12px;border:2px solid var(--rule);background:var(--paper);
+  font-family:var(--type);font-size:.86rem;color:var(--ink);border-radius:0;-webkit-appearance:none;appearance:none;
+  background-image:linear-gradient(45deg,transparent 46%,var(--ink) 46%,var(--ink) 56%,transparent 56%),linear-gradient(-45deg,transparent 46%,var(--ink) 46%,var(--ink) 56%,transparent 56%);
+  background-position:calc(100% - 20px) 55%, calc(100% - 13px) 55%;background-size:8px 8px;background-repeat:no-repeat;
+}
+.steppers{display:flex;flex-direction:column}
+.stepper{display:flex;align-items:center;justify-content:space-between;gap:10px;border:2px solid var(--rule);border-bottom:none;padding:9px 12px;background:var(--paper)}
+.stepper:last-child{border-bottom:2px solid var(--rule)}
+.stepper>span:first-child{font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.stepper .ctrl{display:flex;align-items:center;gap:10px}
+.stepper button{width:28px;height:28px;border:2px solid var(--rule);background:var(--paper);cursor:pointer;font-family:var(--type);font-weight:700;font-size:1rem;line-height:1;color:var(--ink)}
+.stepper button:hover{background:var(--ink);color:var(--paper)}
+.stepper output{font-family:var(--type);font-weight:700;width:20px;text-align:center}
+.ws-note{font-family:var(--type);font-size:.7rem;color:var(--ink-soft);margin-top:16px;line-height:1.7}
+.out-line{display:flex;justify-content:space-between;align-items:baseline;gap:8px;font-size:.82rem;padding:11px 0;border-bottom:1px dashed var(--rule-lt)}
+.out-line b{font-family:var(--type);font-size:.92rem;white-space:nowrap}
+.out-line .neg{color:var(--denial)}
+.out-line .pos{color:var(--green)}
+.out-total{margin:4px 0 8px;padding:16px 0 6px}
+.out-total .lab{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:6px}
+.out-total b{font-family:var(--type);font-weight:700;font-size:clamp(1.6rem,3.4vw,2.1rem);color:var(--denial);letter-spacing:-.02em}
+.stub{border:2px solid var(--rule);background:var(--paper);margin-top:18px;padding:14px 16px 8px}
+.stub-lab{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:8px}
+.stub-row{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font-size:.82rem;color:var(--ink-soft);padding:7px 0;border-bottom:1px dashed var(--rule-lt)}
+.stub-row:last-child{border-bottom:none}
+.stub-row b{font-family:var(--type);font-weight:700;color:var(--ink);letter-spacing:.06em;white-space:nowrap}
+.stub-row.total{border-top:2px solid var(--rule);margin-top:2px;padding-top:10px;color:var(--ink);font-weight:800;text-transform:uppercase;font-size:.72rem;letter-spacing:.06em}
+.stub-row.total b{color:var(--green)}
+.ws-cta{margin-top:20px}
+
+/* ---------- Service schedule ---------- */
+.schedule{border:2px solid var(--rule);margin-top:38px}
+.svc{border-bottom:1px solid var(--rule-lt)}
+.svc:last-child{border-bottom:none}
+.svc summary{
+  list-style:none;cursor:pointer;display:grid;grid-template-columns:64px 1fr auto 20px;
+  gap:14px;align-items:center;padding:15px 18px;
+}
+.svc summary::-webkit-details-marker{display:none}
+.svc summary:hover{background:var(--paper2)}
+.svc .sno{font-family:var(--type);font-size:.72rem;font-weight:700;color:var(--red)}
+.svc .sname{font-weight:800;font-size:.92rem;text-transform:uppercase;letter-spacing:.02em}
+.svc .sname em{font-style:normal;color:var(--red)}
+.svc .snote{font-family:var(--type);font-size:.66rem;color:var(--ink-soft);white-space:nowrap;text-transform:uppercase;letter-spacing:.04em}
+.svc .chev{font-family:var(--type);color:var(--red);font-weight:700;transition:transform .15s}
+.svc[open] .chev{transform:rotate(90deg)}
+.svc .sbody{padding:0 18px 20px 96px;font-size:.88rem;color:var(--ink-soft)}
+@media(max-width:660px){
+  .svc summary{grid-template-columns:48px 1fr 20px}
+  .svc .snote{display:none}
+  .svc .sbody{padding-left:18px}
+}
+.svc .sbody p{margin-top:12px;max-width:78ch}
+.svc .sbody .roles{font-family:var(--type);font-size:.74rem;letter-spacing:.02em;margin-top:12px;color:var(--ink)}
+
+/* ---------- Engagement copies ---------- */
+.copies{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--rule);margin-top:38px}
+@media(max-width:860px){.copies{grid-template-columns:1fr}}
+.copy{padding:32px 30px;border-right:2px solid var(--rule);display:flex;flex-direction:column;align-items:flex-start}
+.copy .btn{margin-top:auto}
+.copy ul{margin-bottom:26px}
+.copy:last-child{border-right:none}
+@media(max-width:860px){.copy{border-right:none;border-bottom:2px solid var(--rule)}.copy:last-child{border-bottom:none}}
+.copy.carbon{background:var(--ink);color:var(--paper)}
+.copy .cp-tag{font-family:var(--type);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--red);display:block;margin-bottom:14px;font-weight:700}
+.copy.carbon .cp-tag{color:var(--red-soft)}
+.copy h3{font-weight:900;text-transform:uppercase;font-size:1.3rem;line-height:1.1;margin-bottom:6px}
+.copy .cp-sub{font-family:var(--type);font-size:.8rem;color:var(--ink-soft);margin-bottom:14px}
+.copy.carbon .cp-sub{color:#A9B4C2}
+.copy p{font-size:.92rem;color:var(--ink-soft)}
+.copy.carbon p{color:#D5DCE5}
+.copy ul{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:8px}
+.copy li{font-size:.86rem;padding-left:24px;position:relative}
+.copy li::before{content:"☒";position:absolute;left:0;top:0;font-family:var(--type);color:var(--green)}
+.copy.carbon li::before{color:#7FC9A0}
+
+/* ---------- Sample teams ---------- */
+.teams{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:2px solid var(--rule);margin-top:38px}
+@media(max-width:860px){.teams{grid-template-columns:1fr}}
+.team{padding:28px 26px;border-right:1px solid var(--rule)}
+.team:last-child{border-right:none}
+@media(max-width:860px){.team{border-right:none;border-bottom:1px solid var(--rule)}.team:last-child{border-bottom:none}}
+.team .t-name{font-weight:900;text-transform:uppercase;font-size:1.05rem;margin-bottom:3px}
+.team .t-for{font-family:var(--type);font-size:.68rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em;display:block;margin-bottom:16px}
+.team ol{list-style:none;display:flex;flex-direction:column;gap:7px}
+.team li{font-size:.86rem;color:var(--ink-soft);padding-left:20px;position:relative}
+.team li::before{content:"—";position:absolute;left:0;color:var(--red)}
+.team li.anchor{color:var(--ink);font-weight:800;text-transform:uppercase;font-size:.8rem;letter-spacing:.04em}
+.team li.anchor::before{content:"★";color:var(--red)}
+
+/* ---------- ICP roster ---------- */
+.roster{border:2px solid var(--rule);margin-top:38px}
+.icp{display:grid;grid-template-columns:64px 280px 1fr;gap:14px;padding:16px 18px;border-bottom:1px solid var(--rule-lt);align-items:baseline}
+.icp:last-child{border-bottom:none}
+@media(max-width:760px){.icp{grid-template-columns:48px 1fr}.icp p{grid-column:2}}
+.icp .ino{font-family:var(--type);font-size:.72rem;font-weight:700;color:var(--red)}
+.icp .iwho{font-weight:800;font-size:.9rem;text-transform:uppercase;letter-spacing:.02em}
+.icp p{font-size:.85rem;color:var(--ink-soft)}
+
+/* ---------- Instructions ---------- */
+.instructions{counter-reset:ins;margin-top:38px;border:2px solid var(--rule)}
+.ins{display:grid;grid-template-columns:88px 1fr;border-bottom:1px solid var(--rule-lt)}
+.ins:last-child{border-bottom:none}
+.ins::before{
+  counter-increment:ins;content:counter(ins) ".";
+  font-family:var(--type);font-weight:700;font-size:1.5rem;color:var(--red);
+  display:flex;align-items:flex-start;justify-content:center;padding:20px 0;border-right:1px solid var(--rule-lt);
+}
+.ins-body{padding:20px 24px}
+.ins h3{font-weight:800;text-transform:uppercase;font-size:.95rem;letter-spacing:.03em;margin-bottom:5px}
+.ins p{font-size:.88rem;color:var(--ink-soft);max-width:80ch}
+@media(max-width:560px){.ins{grid-template-columns:52px 1fr}}
+
+/* ---------- Privacy clauses ---------- */
+.clauses{border:2px solid var(--rule);margin-top:38px}
+.clause{display:grid;grid-template-columns:88px 1fr;border-bottom:1px solid var(--rule-lt)}
+.clause:last-child{border-bottom:none}
+.clause .cno{font-family:var(--type);font-weight:700;font-size:.8rem;color:var(--red);padding:20px 0;text-align:center;border-right:1px solid var(--rule-lt)}
+.clause .cbody{padding:20px 24px}
+.clause h3{font-weight:800;text-transform:uppercase;font-size:.92rem;letter-spacing:.03em;margin-bottom:5px}
+.clause p{font-size:.86rem;color:var(--ink-soft);max-width:84ch}
+@media(max-width:560px){.clause{grid-template-columns:52px 1fr}}
+.compliance-note{
+  margin-top:0;border:2px solid var(--rule);border-top:none;background:var(--paper2);
+  padding:16px 24px;font-family:var(--type);font-size:.74rem;color:var(--ink-soft);line-height:1.7;
+}
+
+/* ---------- AI strip ---------- */
+.aibox{border:2px solid var(--rule);margin-top:38px;display:grid;grid-template-columns:260px 1fr}
+@media(max-width:760px){.aibox{grid-template-columns:1fr}}
+.aibox .ai-l{background:var(--ink);color:var(--paper);padding:26px 24px;display:flex;align-items:center}
+.aibox .ai-l h3{font-weight:900;text-transform:uppercase;font-size:1.05rem;line-height:1.2}
+.aibox .ai-r{padding:26px 26px}
+.aibox .ai-r p{font-size:.9rem;color:var(--ink-soft);max-width:84ch}
+
+/* ---------- Compare ---------- */
+.compare thead th:last-child{background:var(--red)}
+.compare td:last-child{background:var(--green-tint);font-weight:700}
+.compare .no{color:var(--denial);font-weight:700}
+.compare .yes{color:var(--green);font-weight:700}
+
+/* ---------- Locations ---------- */
+.pos{display:grid;grid-template-columns:1fr 1fr;gap:0;border:2px solid var(--rule);margin-top:38px}
+@media(max-width:760px){.pos{grid-template-columns:1fr}}
+.posbox{padding:26px 26px;border-right:2px solid var(--rule)}
+.posbox:last-child{border-right:none}
+@media(max-width:760px){.posbox{border-right:none;border-bottom:2px solid var(--rule)}.posbox:last-child{border-bottom:none}}
+.posbox .ps-tag{font-family:var(--type);font-size:.64rem;font-weight:700;color:var(--red);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:12px}
+.posbox h3{font-weight:900;text-transform:uppercase;font-size:1.15rem;margin-bottom:4px}
+.posbox .tz{font-family:var(--type);font-size:.7rem;color:var(--green);font-weight:700;display:block;margin-bottom:12px;text-transform:uppercase}
+.posbox p{font-size:.88rem;color:var(--ink-soft)}
+
+/* ---------- Signature box (founding team) ---------- */
+.sigbox{border:2px solid var(--rule);margin-top:38px;padding:34px 36px;position:relative;background:var(--paper2)}
+@media(min-width:861px){.sigbox .sb-lab,.sigbox blockquote{max-width:calc(100% - 250px)}}
+.sigbox .sb-lab{font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:18px}
+.sigbox blockquote{font-family:var(--type);font-size:.98rem;line-height:1.75;max-width:62ch}
+.teamfacts{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:26px;border:2px solid var(--rule);background:var(--paper)}
+@media(max-width:760px){.teamfacts{grid-template-columns:1fr}}
+.tf{padding:14px 16px;border-right:1px solid var(--rule-lt)}
+.tf:last-child{border-right:none}
+@media(max-width:760px){.tf{border-right:none;border-bottom:1px solid var(--rule-lt)}.tf:last-child{border-bottom:none}}
+.tf-lab{display:block;font-size:.58rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:5px}
+.tf-val{font-size:.84rem;font-weight:700;line-height:1.35;display:block}
+.sigline{margin-top:28px;display:flex;gap:40px;flex-wrap:wrap;align-items:flex-end}
+.sigline .cell{flex:1;min-width:220px}
+.sigline .script{font-family:var(--type);font-weight:700;font-size:1.25rem;border-bottom:2px solid var(--rule);padding-bottom:6px;transform:rotate(-1deg);display:block}
+.sigline .under{font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft);margin-top:7px;display:block}
+@media(max-width:660px){.sigbox{padding:26px 22px}}
+.vetstamp{position:absolute;top:26px;right:30px;display:flex;flex-direction:column;gap:16px;align-items:flex-end;width:210px;text-align:center}
+.vetstamp .stamp{font-size:.66rem;padding:6px 12px}
+.exhibit{margin:28px auto 0;max-width:680px;transform:rotate(-.6deg)}
+.exhibit img{display:block;width:100%;height:auto;border:2px solid var(--rule);outline:10px solid #fff;outline-offset:-12px;box-shadow:5px 6px 0 rgba(27,36,50,.18)}
+.exhibit figcaption{font-family:var(--type);font-size:.68rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-top:12px;text-align:center}
+@media(max-width:660px){.exhibit{transform:none}}
+@media(max-width:860px){.vetstamp{position:static;flex-direction:row;flex-wrap:wrap;align-items:flex-start;width:auto;margin-bottom:20px;gap:12px}}
+
+/* ---------- FAQ ---------- */
+.faqlist{border:2px solid var(--rule);margin-top:38px}
+.qa{border-bottom:1px solid var(--rule-lt)}
+.qa:last-child{border-bottom:none}
+.qa summary{list-style:none;cursor:pointer;padding:18px 22px;display:grid;grid-template-columns:56px 1fr 20px;gap:14px;align-items:baseline;font-weight:800;font-size:.92rem}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:hover{background:var(--paper2)}
+.qa .qno{font-family:var(--type);font-weight:700;font-size:.74rem;color:var(--red)}
+.qa .chev{font-family:var(--type);color:var(--red);font-weight:700;transition:transform .15s;justify-self:end}
+.qa[open] .chev{transform:rotate(90deg)}
+.qa .qa-a{padding:0 22px 20px 92px;color:var(--ink-soft);font-size:.9rem}
+.qa .qa-a p{max-width:80ch}
+@media(max-width:660px){.qa summary{grid-template-columns:1fr 20px}.qa .qno{display:none}.qa .qa-a{padding-left:22px}}
+
+/* ---------- Contact: submit for processing ---------- */
+.submitgrid{display:grid;grid-template-columns:1fr 1.15fr;gap:44px;margin-top:38px;align-items:start}
+@media(max-width:860px){.submitgrid{grid-template-columns:1fr}}
+.expect{list-style:none;display:flex;flex-direction:column;gap:18px;margin-top:22px}
+.expect li{font-size:.92rem;color:var(--ink-soft)}
+.expect b{display:block;font-size:.64rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);margin-bottom:4px}
+.claimform{border:2px solid var(--rule)}
+.cf-head{background:var(--red);color:#fff;padding:11px 18px;font-size:.66rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;display:flex;justify-content:space-between;gap:10px}
+.cf-head .type{font-weight:400;opacity:.85}
+.cf-body{padding:26px 24px;background:var(--paper)}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+@media(max-width:560px){.cf-row{grid-template-columns:1fr}}
+.cf-field{margin-bottom:18px}
+.cf-field label{display:block;font-size:.6rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.cf-field input,.cf-field select,.cf-field textarea{
+  width:100%;border:none;border-bottom:2px solid var(--rule);background:transparent;
+  font-family:var(--type);font-size:.92rem;color:var(--ink);padding:8px 2px;border-radius:0;
+}
+.cf-field select{border:2px solid var(--rule);padding:10px 12px;background-color:var(--paper)}
+.cf-field textarea{border:2px solid var(--rule);padding:10px 12px;min-height:84px;resize:vertical}
+.cf-field ::placeholder{color:#A8A294}
+.cf-ok{display:none;border:2px solid var(--green);background:var(--green-tint);color:var(--green);padding:14px 16px;font-family:var(--type);font-size:.84rem;margin-top:14px}
+
+/* ---------- Footer: the fine print ---------- */
+.backpage{background:var(--ink);color:#A9B4C2;border-top:3px solid var(--red)}
+.backpage .padf{max-width:var(--maxw);margin:0 auto;padding:44px 56px 36px}
+@media(max-width:760px){.backpage .padf{padding:36px 22px}}
+.bp-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px}
+@media(max-width:860px){.bp-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.bp-grid{grid-template-columns:1fr}}
+.backpage h4{font-size:.62rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);margin-bottom:14px}
+.backpage ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.backpage a{color:#A9B4C2;font-size:.84rem;text-decoration:none}
+.backpage a:hover{background:transparent;color:#fff;text-decoration:underline}
+.bp-brand{font-weight:900;letter-spacing:.06em;text-transform:uppercase;color:var(--paper);font-size:1rem}
+.bp-desc{font-size:.82rem;margin-top:10px;max-width:36ch}
+.bp-legal{margin-top:38px;padding-top:20px;border-top:1px solid #33405A;font-family:var(--type);font-size:.68rem;line-height:1.8}
+.bp-legal p{max-width:110ch}
+</style>
+</head>
+<body>
+
+<!-- ============ FORM HEADER BAND ============ -->
+<header class="band">
+  <div class="band-in">
+    <a class="band-logo" href="#top"><svg class="logomark" width="30" height="20" viewBox="0 0 240 160" aria-hidden="true" style="flex-shrink:0"><g transform="rotate(3 120 80)"><rect x="10" y="14" width="220" height="132" rx="22" fill="none" stroke="#7FA3CC" stroke-width="13"/><rect x="30" y="34" width="180" height="92" rx="12" fill="none" stroke="#7FA3CC" stroke-width="6"/><text x="120" y="84" text-anchor="middle" dominant-baseline="central" font-family="'Libre Franklin', Arial, sans-serif" font-weight="900" font-size="56" letter-spacing="5" fill="#7FA3CC">NRCM</text></g></svg> Nearshore RCM <span class="formno">FORM NRCM-1 · REV 08/26</span></a>
+    <nav class="band-nav" id="bandnav" aria-label="Primary">
+      <a href="#case">Cost case</a>
+      <a href="#services">Services</a>
+      <a href="#models">Engagement</a>
+      <a href="#clients">Who we serve</a>
+      <a href="#compliance">Security</a>
+      <a href="register/index.html">The Register</a>
+      <a href="#contact" class="band-cta">Design your team</a>
+    </nav>
+    <button class="menu-btn" id="menubtn" aria-expanded="false" aria-controls="bandnav">Menu</button>
+  </div>
+</header>
+
+<main class="sheet" id="top">
+
+<!-- ============ BOX 1 — HERO ============ -->
+<section class="box hero" aria-labelledby="hero-h">
+  <div class="pad">
+    <div class="hero-meta">
+      <span>Nearshore revenue cycle &amp; healthcare operations</span>
+      <span>For US healthcare organizations</span>
+      <span>Delivery: Bogotá, CO · Santo Domingo, DO</span>
+    </div>
+    <h1 id="hero-h">Lower the cost of your <span class="redline">revenue cycle.</span></h1>
+    <p class="lede">NearshoreRCM reduces what your revenue cycle costs to run. Dedicated billing, coding, credentialing, and RCM leadership teams in Latin America — built for medical groups, RCM companies, MSOs, and healthcare platforms — at a substantially lower fully-loaded cost per seat, on US working hours.</p>
+    <div class="hero-ctas">
+      <a href="#case" class="btn red">See the cost case</a>
+      <a href="#contact" class="btn">Design your team</a>
+      <span class="stamp green">BAA before any PHI access</span>
+    </div>
+    <div class="hero-fields">
+      <div class="hfield"><span class="lab">Field 1 · US benchmark, fully loaded</span><b class="crl tnum">$58–75k</b><span>first-year cost of one US biller — salary, load, recruiting, equipment</span></div>
+      <div class="hfield"><span class="lab">Field 2 · Time-zone coverage</span><b class="tnum">100%</b><span>8am–5pm Eastern — payer calls happen live</span></div>
+      <div class="hfield"><span class="lab">Field 3 · Recruiting &amp; replacement fees</span><b class="grn tnum">$0</b><span>hiring, equipment, and replacement included</span></div>
+    </div>
+    <div class="clockrow" aria-label="Live local times showing US and Latin America working the same hours">
+      <div class="clk"><span class="lab">New York — your payers</span><span class="t tnum" id="clkNY">--:--:--<small>ET</small></span></div>
+      <div class="clk"><span class="lab">Bogotá — delivery</span><span class="t tnum" id="clkBOG">--:--:--<small>COT</small></span></div>
+      <div class="clk"><span class="lab">Santo Domingo — delivery</span><span class="t tnum" id="clkSDQ">--:--:--<small>AST</small></span></div>
+      <div class="clk note"><p><b>One working day.</b> Your team calls payers during payer business hours — not overnight.</p></div>
+    </div>
+
+    <!-- Claims register — the signature element -->
+    <div class="register" role="img" aria-label="Illustration: a claims register where denied claims are appealed and stamped paid">
+      <div class="reg-head"><span>Claims register · Remittance 835</span><span class="type">Worked live · ET business hours</span></div>
+      <div class="reg-cols"><span>Claim no.</span><span class="c-code">CPT</span><span class="c-payer">Payer / reason</span><span>Billed</span><span style="text-align:center">Status</span></div>
+      <div class="reg-rows" id="regrows"></div>
+      <div class="reg-foot"><span>Denials worked this session</span><b id="regcount">0 recovered</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOX 2 — THE COST CASE ============ -->
+<section class="box" id="case" aria-labelledby="case-h">
+  <div class="pad">
+    <div class="boxhead"><span class="boxno">BOX 2</span><h2 class="boxtitle" id="case-h">Revenue cycle labor is your largest controllable administrative cost</h2></div>
+    <p class="boxsub">Itemization of charges — what the function costs to staff in the US</p>
+    <p class="lede">Billing, A/R, denials, credentialing, and payer follow-up repeat every month, forever. The work is permanent — what it costs to staff is not. US healthcare organizations pay high fully-loaded rates per seat, absorb constant turnover, and still watch denial queues go unworked.</p>
+    <div class="notices">
+      <div class="notice">
+        <span class="code">Reason · CO-29 timely filing expired</span>
+        <h3>The denial pile</h3>
+        <p>Denied claims that never get worked are pure loss. Most organizations recover less than half of what is actually appealable — not because appeals fail, but because nobody has the hours to file them before deadlines pass.</p>
+      </div>
+      <div class="notice">
+        <span class="code">Loss code · Internal — Turnover</span>
+        <h3>The turnover tax</h3>
+        <p>Every biller departure costs three to six months of degraded A/R while you recruit, hire, and train a replacement. At team scale, someone is always leaving.</p>
+      </div>
+      <div class="notice">
+        <span class="code">Loss code · Internal — Wrong-wage work</span>
+        <h3>The distraction</h3>
+        <p>When clinicians and practice leadership absorb billing tasks, you pay clinical and executive wages for clerical work — and every job involved gets done worse.</p>
+      </div>
+    </div>
+
+    <div class="eob">
+      <table>
+        <thead><tr><th scope="col">US salary benchmarks, 2026</th><th scope="col" style="text-align:right">National figures</th></tr></thead>
+        <tbody>
+          <tr><td>Medical biller <span class="dim">— national average</span></td><td class="num">$42,700 <span class="dim">· starting $39,500–$50,000</span></td></tr>
+          <tr><td>Experienced billing specialist</td><td class="num">$54,300</td></tr>
+          <tr><td>Prior authorization specialist</td><td class="num">$43,500–$50,400</td></tr>
+          <tr><td>Credentialing specialist <span class="dim">— starting range</span></td><td class="num">$43,750–$57,000</td></tr>
+          <tr><td>Certified medical coder (CPC) <span class="dim">— multi-credential $71,000+</span></td><td class="num">$65,000–$67,000</td></tr>
+          <tr><td>Medical records specialists <span class="dim">— BLS category median</span></td><td class="num">$50,250</td></tr>
+          <tr><td>Medical &amp; health services managers <span class="dim">— BLS category median</span></td><td class="num">$117,960</td></tr>
+          <tr class="total"><td>Per seat, per year — with 20–30% load, recruiting &amp; turnover</td><td class="num">$58,000–$75,000+</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src">Sources: ZipRecruiter · Glassdoor · Robert Half 2026 Salary Guide · US Bureau of Labor Statistics (May 2024 OOH) · AAPC salary survey. National averages; local markets vary. Benchmarks reviewed quarterly. Nearshore delivery substantially reduces fully-loaded cost per seat — your itemized quote shows the exact figures for your team.</p>
+
+    <!-- Worksheet A -->
+    <div class="worksheet" id="calculator">
+      <div class="ws-head"><b>Worksheet A — Your US cost benchmark</b><span>Estimates only · your nearshore quote is itemized on one call</span></div>
+      <div class="ws-grid">
+        <div class="ws-in">
+          <div class="field">
+            <label for="stateSel">A1 · Your state <output id="stateOut">National average</output></label>
+            <select id="stateSel">
+              <option value="1" selected>National average</option>
+              <option value="1.22">California</option>
+              <option value="1.18">New York</option>
+              <option value="1.2">Massachusetts</option>
+              <option value="1.19">Washington</option>
+              <option value="1.12">New Jersey</option>
+              <option value="1.08">Illinois</option>
+              <option value="1.05">Colorado</option>
+              <option value="1.02">Florida</option>
+              <option value="1.01">Texas</option>
+              <option value="0.98">Indiana</option>
+              <option value="0.97">Ohio</option>
+              <option value="0.96">Tennessee</option>
+              <option value="0.95">Georgia</option>
+              <option value="0.93">Alabama</option>
+              <option value="0.92">Mississippi</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>A2 · Seats you need</label>
+            <div class="steppers">
+              <div class="stepper"><span>Medical billers / A-R</span><span class="ctrl"><button type="button" data-step="billers" data-dir="-1" aria-label="Fewer billers">−</button><output id="qtyBillers">2</output><button type="button" data-step="billers" data-dir="1" aria-label="More billers">+</button></span></div>
+              <div class="stepper"><span>Denials specialists</span><span class="ctrl"><button type="button" data-step="ar" data-dir="-1" aria-label="Fewer denials specialists">−</button><output id="qtyAr">1</output><button type="button" data-step="ar" data-dir="1" aria-label="More denials specialists">+</button></span></div>
+              <div class="stepper"><span>Certified coders (CPC)</span><span class="ctrl"><button type="button" data-step="coders" data-dir="-1" aria-label="Fewer coders">−</button><output id="qtyCoders">1</output><button type="button" data-step="coders" data-dir="1" aria-label="More coders">+</button></span></div>
+              <div class="stepper"><span>Revenue cycle managers</span><span class="ctrl"><button type="button" data-step="mgr" data-dir="-1" aria-label="Fewer managers">−</button><output id="qtyMgr">0</output><button type="button" data-step="mgr" data-dir="1" aria-label="More managers">+</button></span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ws-out" aria-live="polite">
+          <div class="out-total"><span class="lab">A3 · Estimated fully-loaded US cost of this team / yr</span><b id="usCost" class="tnum">$254,000</b></div>
+          <div class="out-line"><span>Seats modeled</span><b class="tnum" id="seatCount">4</b></div>
+          <div class="out-line"><span>Five-year US cost at this size</span><b class="neg tnum" id="fiveYr">$1,270,000</b></div>
+          <div class="stub">
+            <span class="stub-lab">A4 · Your nearshore quote — to be completed on one call</span>
+            <div class="stub-row"><span>Seat compensation (CO / DO market rate)</span><b>$ ________</b></div>
+            <div class="stub-row"><span>Employment, benefits &amp; compliance costs</span><b>$ ________</b></div>
+            <div class="stub-row"><span>Equipment, security &amp; management</span><b>$ ________</b></div>
+            <div class="stub-row"><span>Our margin — shown, not hidden</span><b>$ ________</b></div>
+            <div class="stub-row total"><span>Total per seat, per year</span><b>$ ________</b></div>
+          </div>
+          <p class="ws-note">Estimates from published national benchmarks with a 25% employment load and amortized recruiting/equipment. We don't publish rates, because ours are itemized to your exact roles, seniority, and systems — but the format above is fixed: you see every line, including our margin, next to your US benchmark.</p>
+          <div class="ws-cta"><a href="#contact" class="btn red">Get the itemized quote</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOX 3 — SERVICE SCHEDULE ============ -->
+<section class="box" id="services" aria-labelledby="svc-h">
+  <div class="pad">
+    <div class="boxhead"><span class="boxno">BOX 3</span><h2 class="boxtitle" id="svc-h">Schedule of services — a ladder, not a staffing menu</h2></div>
+    <p class="boxsub">Most engagements begin with revenue cycle seats and expand up the schedule · tap a line for roles</p>
+    <div class="schedule" id="schedule"></div>
+  </div>
+</section>
+
+<!-- ============ BOX 4 — ENGAGEMENT ============ -->
+<section class="box" id="models" aria-labelledby="tiers-h">
+  <div class="pad">
+    <div class="boxhead"><span class="boxno">BOX 4</span><h2 class="boxtitle" id="tiers-h">Two ways to engage. We'll tell you which fits.</h2></div>
+    <p class="boxsub">Select one · assessed honestly on the first call</p>
+    <div class="copies">
+      <div class="copy">
+        <span class="cp-tag">Option A · Dedicated teams</span>
+        <h3>Your workflows. Our people.</h3>
+        <p class="cp-sub">For organizations with billing leadership in place.</p>
+        <p>Dedicated professionals who work inside your PM/EHR, on your workflows, reporting to your managers. We handle recruiting, employment, equipment, security standards, healthcare-specific screening, and replacement.</p>
+        <ul>
+          <li>You interview and select from a vetted shortlist</li>
+          <li>Healthcare screening: payers, systems, English, competency</li>
+          <li>Employment, HR, and retention carried by us</li>
+          <li>Replacement included — continuity covered in transition</li>
+          <li>Scale from one seat to a complete function</li>
+        </ul>
+        <a href="#contact" class="btn">Design a dedicated team</a>
+      </div>
+      <div class="copy carbon">
+        <span class="cp-tag">Option B · Managed revenue cycle</span>
+        <h3>Our leadership. Your outcomes.</h3>
+        <p class="cp-sub">For organizations that want the function owned end to end.</p>
+        <p>A senior revenue cycle lead and a structured team run the full cycle inside your systems — eligibility through appeals — with documented SOPs, QA sampling, and weekly KPI reporting built for executives.</p>
+        <ul>
+          <li>Full-cycle scope: claims, denials, A/R, posting, patient balances</li>
+          <li>Weekly report: clean claim rate, denial rate, A/R days, collections</li>
+          <li>Transition by parallel run — no system migration</li>
+          <li>Your read access is never revoked; it is your data</li>
+          <li>No long-term lock-in — documented SOPs are yours if you leave</li>
+        </ul>
+        <a href="#contact" class="btn onink">Discuss managed RCM</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOX 5 — SAMPLE TEAMS ============ -->
+<section class="box" aria-labelledby="teams-h">
+  <div class="pad">
+    <div class="boxhead"><span class="boxno">BOX 5</span><h2 class="boxtitle" id="teams-h">Teams are designed, not ordered off a menu</h2></div>
+    <p class="boxsub">Describe the pain — we recommend the composition · three common shapes</p>
+    <div class="teams">
+      <div class="team">
+        <div class="t-name">RCM Pod</div>
+        <span class="t-for">A first team for a growing group</span>
+        <ol>
+          <li class="anchor">Team Lead</li>
+          <li>Medical Biller ×2</li>
+          <li>A/R &amp; Denials Specialist</li>
+        </ol>
+      </div>
+      <div class="team">
+        <div class="t-name">RCM Team</div>
+        <span class="t-for">A full function for a multi-site group</span>
+        <ol>
+          <li class="anchor">Revenue Cycle Manager</li>
+          <li>Senior Specialists ×2</li>
+          <li>Billers / A-R / Posting ×5–8</li>
+          <li>Credentialing Specialist</li>
+        </ol>
+      </div>
+      <div class="team">
+        <div class="t-name">Shared Services Team</div>
+        <span class="t-for">For MSOs, DSOs &amp; platforms</span>
+        <ol>
+          <li class="anchor">RCM Manager</li>
+          <li>Revenue Cycle core team</li>
+          <li>Coding &amp; Audit</li>
+          <li>Credentialing &amp; Enrollment</li>
+          <li>Revenue Analyst · Finance</li>
+        </ol>
+      </div>
+    </div>
+    <p class="lede" style="margin-top:24px;font-size:.92rem">The Revenue Cycle Manager is the anchor role: one senior leader who owns KPIs, payer escalation, and workflow improvement — and pulls the junior seats behind them into a coherent function.</p>
+  </div>
+</section>
+
+<!-- ============ BOX 6 — WHO WE SERVE ============ -->
+<section class="box" id="clients" aria-labelledby="icp-h">
+  <div class="pad">
+    <div class="boxhead"><span class="boxno">BOX 6</span><h2 class="boxtitle" id="icp-h">Built for healthcare organizations with real volume</h2></div>
+    <p class="boxsub">Roster of ideal customers</p>
+    <div class="roster">
+      <div class="icp"><span class="ino">6.1</span><span class="iwho">Multi-provider physician groups</span><p>Ten to one hundred–plus providers: enough volume to need dedicated teams, and direct economic pain from billing and staffing.</p></div>
+      <div class="icp"><span class="ino">6.2</span><span class="iwho">Specialty practices</span><p>Orthopedics, behavioral health, cardiology, dermatology, surgical groups — where complex coding and payer rules demand specialized talent.</p></div>
+      <div class="icp"><span class="ino">6.3</span><span class="iwho">RCM &amp; billing companies</span><p>Trained capacity in larger blocks, white-labeled — for firms that already understand the economics and need seats that perform.</p></div>
+      <div class="icp"><span class="ino">6.4</span><span class="iwho">MSOs, DSOs &amp; healthcare platforms</span><p>Centralized shared services under margin pressure: cross-functional teams spanning RCM, credentialing, analytics, finance, and operations.</p></div>
+      <div class="icp"><span class="ino">6.5</span><span class="iwho">Hospitals &amp; health systems</span><p>Engaged selectively as our compliance and security infrastructure matures to procurement standards.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOX 7 — WHY NEARSHORE ============ -->
+<section class="box" aria-labelledby="vs-h">
+  <div class="pad">
+    <div class="boxhead"><span class="boxno">BOX 7</span><h2 class="boxtitle" id="vs-h">Your payers answer phones in Eastern time. So do we.</h2></div>
+    <p class="boxsub">Comparison of delivery models · what matters daily</p>
+    <div class="eob compare">
+      <table>
+        <thead><tr><th scope="col">What matters daily</th><th scope="col">In-house US</th><th scope="col">Offshore (Asia)</th><th scope="col">NearshoreRCM</th></tr></thead>
+        <tbody>
+          <tr><td>Business-hours overlap with US payers</td><td>Full</td><td><span class="no">1–3 hrs, night shift</span></td><td><span class="yes">Full — ET aligned</span></td></tr>
+          <tr><td>Live payer calls during your workday</td><td>Yes</td><td><span class="no">Overnight queue</span></td><td><span class="yes">Yes, same-day</span></td></tr>
+          <tr><td>Native-Spanish patient calls</td><td>Sometimes</td><td><span class="no">Rare</span></td><td><span class="yes">Standard</span></td></tr>
+          <tr><td>Fully-loaded cost vs. US hire</td><td>Baseline</td><td>Lower</td><td><span class="yes">Substantially lower</span></td></tr>
+          <tr><td>Turnover risk carried by</td><td><span class="no">You</span></td><td>Vendor (slow refill)</td><td><span class="yes">Us — replacement included</span></td></tr>
+          <tr><td>Same-day answers to your questions</td><td>Yes</td><td><span class="no">Tomorrow</span></td><td><span class="yes">Yes</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pos">
+      <div class="posbox">
+        <span class="ps-tag">Service location A</span>
+        <h3>Bogotá, Colombia</h3>
+        <span class="tz">GMT−5 · Eastern time year-round · no DST drift</span>
+        <p>Latin America's deepest professional talent pool for US healthcare back-office work: universities, established BPO infrastructure, and thousands of professionals already trained on US payers and PM systems.</p>
+      </div>
+      <div class="posbox">
+        <span class="ps-tag">Service location B</span>
+        <h3>Santo Domingo, Dominican Republic</h3>
+        <span class="tz">GMT−4 · matches ET in summer · +1 hr in winter</span>
+        <p>A workforce with exceptional English fluency and deep experience serving US healthcare and insurance customers by phone. Two delivery countries also means built-in geographic redundancy.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOX 8 — INSTRUCTIONS ============ -->
+<section class="box" id="how" aria-labelledby="how-h">
+  <div class="pad">
+    <div class="boxhead"><span class="boxno">BOX 8</span><h2 class="boxtitle" id="how-h">Instructions: from discovery to a working team</h2></div>
+    <p class="boxsub">Complete steps in order</p>
+    <div class="instructions">
+      <div class="ins"><div class="ins-body"><h3>Discovery</h3><p>Your systems, specialties, payer mix, current team, and where the function is bleeding — thirty minutes, no deck.</p></div></div>
+      <div class="ins"><div class="ins-body"><h3>Role design</h3><p>We recommend the team composition — roles, seniority, and sequencing — against your volume and pain points.</p></div></div>
+      <div class="ins"><div class="ins-body"><h3>Recruiting &amp; vetting</h3><p>Healthcare-specific screening: payer knowledge, systems experience, English assessment, competency testing, references, and background checks.</p></div></div>
+      <div class="ins"><div class="ins-body"><h3>Secured onboarding</h3><p>BAA executed before any PHI access. Least-privilege credentials under your control, managed encrypted equipment, documented workflows.</p></div></div>
+      <div class="ins"><div class="ins-body"><h3>Management &amp; QA</h3><p>Structured supervision, quality sampling, and replacement coverage — employment and retention are our responsibility, not yours.</p></div></div>
+      <div class="ins"><div class="ins-body"><h3>Scale</h3><p>Add seats, add functions, add leadership. One account can grow from two specialists into a complete shared-services operation.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOX 9 — PRIVACY & SECURITY ============ -->
+<section class="box" id="compliance" aria-labelledby="hipaa-h">
+  <div class="pad">
+    <div class="boxhead"><span class="boxno">BOX 9</span><h2 class="boxtitle" id="hipaa-h">Privacy &amp; security program</h2><span class="stamp red" style="font-size:.62rem;padding:5px 10px">Blue Coding · SOC 2 attested</span></div>
+    <p class="boxsub">Revenue cycle work makes a service provider a HIPAA Business Associate — we treat that as an operating model, stated factually</p>
+    <div class="clauses">
+      <div class="clause"><span class="cno">9.1</span><div class="cbody"><h3>BAA before any PHI access</h3><p>A Business Associate Agreement executed with every client — and subcontractor BAAs where required — as a precondition, not an option.</p></div></div>
+      <div class="clause"><span class="cno">9.2</span><div class="cbody"><h3>Least-privilege access, your credentials</h3><p>Accounts you provision, scoped to the role, with MFA enforced, prompt deprovisioning, and a revocation switch that is always yours. Controlled access to client systems is preferred over any local PHI handling.</p></div></div>
+      <div class="clause"><span class="cno">9.3</span><div class="cbody"><h3>Company-managed equipment</h3><p>Managed, encrypted, patched devices. Restrictions on local downloads, printing, personal email, and removable media. No personal devices touch client systems.</p></div></div>
+      <div class="clause"><span class="cno">9.4</span><div class="cbody"><h3>Training and screening</h3><p>Formal HIPAA privacy and security training with documented completion for every team member before PHI access, plus background checks appropriate to each delivery country.</p></div></div>
+      <div class="clause"><span class="cno">9.5</span><div class="cbody"><h3>Risk analysis and audit trails</h3><p>Written policies, security risk analysis with ongoing risk management, activity logging, and documented incident-response and breach-escalation procedures.</p></div></div>
+      <div class="clause"><span class="cno">9.6</span><div class="cbody"><h3>Two-country continuity</h3><p>Bogotá and Santo Domingo operations provide US-hours coverage with built-in geographic redundancy — an outage in one location does not stop your revenue cycle.</p></div></div>
+    </div>
+    <div class="compliance-note">We describe our safeguards factually and claim nothing we cannot substantiate. NearshoreRCM operates under <a href="https://bluecoding.com" rel="noopener">Blue Coding</a>, which holds SOC 2 attestation; our controls are built to that same standard, and extending the attestation’s scope to cover NearshoreRCM’s healthcare operations is on the compliance roadmap. HIPAA is a regulatory framework, not a certification badge — and you will not see a badge on this site for anything we have not actually earned.</div>
+  </div>
+</section>
+
+<!-- ============ BOX 10 — AI-ENABLED OPERATIONS ============ -->
+<section class="box" aria-labelledby="ai-h">
+  <div class="pad">
+    <div class="boxhead"><span class="boxno">BOX 10</span><h2 class="boxtitle" id="ai-h">AI-enabled operations, honestly framed</h2></div>
+    <div class="aibox">
+      <div class="ai-l"><h3>Automation flags. Specialists own the exceptions.</h3></div>
+      <div class="ai-r"><p>Automation is reshaping routine administrative work — CMS's prior-authorization interoperability requirements accelerate it from 2027. Our answer is a deliberate mix: automated tooling surfaces issues; trained specialists own the judgment. That is why the service schedule is weighted toward exception-heavy work — denial management, payer escalation, specialty coding, auditing, credentialing, analytics, and leadership — the work that gets more valuable as the routine work automates.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOX 11 — WHO'S BEHIND THIS ============ -->
+<section class="box" aria-labelledby="founder-h">
+  <div class="pad">
+    <div class="boxhead"><span class="boxno">BOX 11</span><h2 class="boxtitle" id="founder-h">Who's behind this</h2></div>
+    <p class="boxsub">Statement of the founding team · the operators behind Blue Coding &amp; NearshoreFinance</p>
+    <div class="sigbox">
+      <div class="vetstamp"><span class="stamp red" style="transform:rotate(-2deg)">English: suspiciously fluent</span> <span class="stamp green" style="transform:rotate(1.5deg)">US &amp; LATAM · one team</span></div>
+      <span class="sb-lab">Read before signing</span>
+      <blockquote>"We're not new to this. We're the same operators behind <a href="https://bluecoding.com" rel="noopener">Blue Coding</a> — building nearshore software and staffing teams for US companies since 2014 — and <a href="https://nearshorefinance.com" rel="noopener">NearshoreFinance</a>, which does the same for finance and accounting functions. NearshoreRCM brings that playbook to healthcare operations. Our team is spread all throughout the US and Latin America, and it’s run by veterans, minorities, women, and a whole bunch of smart people (plus Gabriel), all obsessed with making the customer the hero. Several of us live and work in the same cities we hire from — we know this industry, we know these markets, and we know the people. Also — and we say this with the calm confidence of people who wrote every word on this website — our English is excellent. This firm runs on what a decade of placements taught us: honest math, itemized quotes, and people paid well enough to stay."</blockquote>
+      <figure class="exhibit">
+        <img src="assets/team.jpg" alt="A large group from the Blue Coding and NearshoreRCM team standing together in a bright tiled courtyard" width="1080" height="960" loading="lazy">
+        <figcaption>Exhibit A · The team behind the paperwork</figcaption>
+      </figure>
+      <div class="teamfacts">
+        <div class="tf"><span class="tf-lab">Leadership footprint</span><span class="tf-val">United States · Colombia · Dominican Republic</span></div>
+        <div class="tf"><span class="tf-lab">Run by</span><span class="tf-val">Veterans, minorities, women &amp; smart people</span></div>
+        <div class="tf"><span class="tf-lab">From the same team</span><span class="tf-val">Blue Coding (est. 2014) · NearshoreFinance</span></div>
+      </div>
+      <div class="sigline">
+        <div class="cell"><span class="script">The NearshoreRCM Founding Team</span><span class="under">Signed on behalf of the founding partners</span></div>
+        <div class="cell" style="max-width:160px"><span class="script type">08 / 2026</span><span class="under">Date</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOX 12 — FAQ ============ -->
+<section class="box" id="faq" aria-labelledby="faq-h">
+  <div class="pad">
+    <div class="boxhead"><span class="boxno">BOX 12</span><h2 class="boxtitle" id="faq-h">Questions, answered straight</h2></div>
+    <div class="faqlist" id="faqlist"></div>
+  </div>
+</section>
+
+<!-- ============ BOX 13 — SUBMIT ============ -->
+<section class="box" id="contact" aria-labelledby="contact-h">
+  <div class="pad">
+    <div class="boxhead"><span class="boxno">BOX 13</span><h2 class="boxtitle" id="contact-h">Design your team</h2></div>
+    <p class="boxsub">Submit for processing · a straight assessment, a recommended composition, and an itemized quote</p>
+    <div class="submitgrid">
+      <div>
+        <p class="lede">Describe the function and the pain. You get a recommended team design, the right engagement model for your organization — and a quote that shows each seat's compensation, employment costs, and our margin, line by line.</p>
+        <ul class="expect">
+          <li><b>The conversation</b>Thirty minutes with someone who has run this work — not a sales script. If we're not the right fit, we'll say so.</li>
+          <li><b>Have handy</b>Your PM/EHR, provider count, specialty mix, current team structure, and the roles or functions you're considering.</li>
+          <li><b>You leave with</b>A recommended team design and the itemized quote.</li>
+        </ul>
+      </div>
+      <form class="claimform" id="leadform" novalidate>
+        <div class="cf-head"><span>Request for assessment</span><span class="type">Please type or print</span></div>
+        <div class="cf-body">
+          <div class="cf-row">
+            <div class="cf-field"><label for="f-name">1 · Your name</label><input type="text" id="f-name" name="name" placeholder="Jane Smith" autocomplete="name" required></div>
+            <div class="cf-field"><label for="f-email">2 · Work email</label><input type="email" id="f-email" name="email" placeholder="jane@organization.com" autocomplete="email" required></div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field">
+              <label for="f-type">3 · Organization type</label>
+              <select id="f-type" name="orgtype">
+                <option>Physician group (10–100+ providers)</option>
+                <option>Specialty practice</option>
+                <option>RCM / billing company</option>
+                <option>MSO / DSO / healthcare platform</option>
+                <option>Hospital / health system</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="cf-field"><label for="f-providers">4 · Provider count</label><input type="text" id="f-providers" name="providers" placeholder="e.g., 24"></div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field"><label for="f-systems">5 · PM / EHR systems</label><input type="text" id="f-systems" name="systems" placeholder="e.g., athenahealth, eCW"></div>
+            <div class="cf-field"><label for="f-seats">6 · Seats considered</label><input type="text" id="f-seats" name="seats" placeholder="e.g., 4–6"></div>
+          </div>
+          <div class="cf-row">
+            <div class="cf-field">
+              <label for="f-function">7 · Function needed first</label>
+              <select id="f-function" name="function">
+                <option>Revenue Cycle (billing / A-R / denials)</option>
+                <option>Coding &amp; Audit</option>
+                <option>Credentialing &amp; Enrollment</option>
+                <option>RCM Leadership</option>
+                <option>Data &amp; Analytics</option>
+                <option>Finance &amp; Accounting</option>
+                <option>Managed Revenue Cycle (full function)</option>
+                <option>Not sure — recommend a design</option>
+              </select>
+            </div>
+            <div class="cf-field"><label for="f-timeline">8 · Target start</label><input type="text" id="f-timeline" name="timeline" placeholder="e.g., 30–60 days"></div>
+          </div>
+          <div class="cf-field"><label for="f-msg">9 · Where is the function bleeding?</label><textarea id="f-msg" name="message" placeholder="A/R over 45 days, credentialing backlog, denials nobody works…"></textarea></div>
+          <button type="submit" class="btn red" style="width:100%">Request the assessment</button>
+          <div class="cf-ok" id="formok" role="status">Received — someone who has run this work will reach out within one business day.</div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ BACK PAGE (FOOTER) ============ -->
+<footer class="backpage">
+  <div class="padf">
+    <div class="bp-grid">
+      <div>
+        <span class="bp-brand">Nearshore RCM</span>
+        <p class="bp-desc">Specialized revenue cycle and healthcare operations teams, delivered from Bogotá and Santo Domingo for US healthcare organizations. A Blue Coding brand, from the team behind NearshoreFinance.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="services/revenue-cycle.html">Revenue cycle</a></li>
+          <li><a href="services/medical-coding.html">Coding &amp; audit</a></li>
+          <li><a href="services/credentialing.html">Credentialing</a></li>
+          <li><a href="services/healthcare-analytics.html">Data &amp; analytics</a></li>
+          <li><a href="services/healthcare-technology.html">Healthcare technology</a></li>
+          <li><a href="services/healthcare-finance.html">Finance &amp; accounting</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#clients">Who we serve</a></li>
+          <li><a href="#compliance">Security &amp; compliance</a></li>
+          <li><a href="register/index.html">The Register</a></li>
+          <li><a href="radiant-hearts.html">Radiant Hearts</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Delivery centers</h4>
+        <ul>
+          <li>Bogotá, Colombia</li>
+          <li>Santo Domingo, Dominican Republic</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bp-legal">
+      <p>© 2026 Blue Coding. NearshoreRCM is a Blue Coding brand. All rights reserved. US salary benchmarks are drawn from published third-party and government sources (ZipRecruiter, Glassdoor, Robert Half 2026 Salary Guide, US Bureau of Labor Statistics, AAPC) as of August 2026 and are national estimates; local markets vary. Cost figures on this site describe US hiring benchmarks, not guaranteed savings. NearshoreRCM provides non-clinical healthcare operations and staffing services and does not provide legal, clinical, or coding-judgment advice. This page is not a government form and is not affiliated with CMS.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   NearshoreRCM v5 — claim-form skin, brief-aligned content
+   Handoff (dev): wire #leadform to CRM; remove demo handler.
+   ============================================================ */
+
+/* ---------- Mobile nav ---------- */
+(function(){
+  var btn = document.getElementById('menubtn');
+  var nav = document.getElementById('bandnav');
+  btn.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if (e.target.tagName === 'A'){ nav.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+  });
+})();
+
+/* ---------- Live clocks ---------- */
+(function(){
+  var zones = [
+    {el:'clkNY',  tz:'America/New_York',      lab:'ET'},
+    {el:'clkBOG', tz:'America/Bogota',        lab:'COT'},
+    {el:'clkSDQ', tz:'America/Santo_Domingo', lab:'AST'}
+  ];
+  var fmts = zones.map(function(z){
+    return { el: document.getElementById(z.el), lab: z.lab,
+      f: new Intl.DateTimeFormat('en-US', {hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false,timeZone:z.tz}) };
+  });
+  function tick(){
+    var now = new Date();
+    fmts.forEach(function(z){
+      z.el.innerHTML = z.f.format(now) + '<small>' + z.lab + '</small>';
+    });
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+/* ---------- Claims register (signature) ---------- */
+(function(){
+  var rows = document.getElementById('regrows');
+  var countEl = document.getElementById('regcount');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var payers = ['BCBS-IL','AETNA','UHC','CIGNA','HUMANA','MEDICARE','ANTHEM','TRICARE-E'];
+  var codes  = ['90837','99214','97110','90791','99213','G0439','90834','97530'];
+  var reasons = ['CO-197 AUTH ABSENT','CO-16 INFO MISSING','CO-29 TIMELY FILING','CO-45 EXCEEDS FEE'];
+  var recovered = 0;
+
+  function money(){ return '$' + (Math.floor(Math.random()*380)+95) + '.00'; }
+  function id(){ return 'CLM-' + (Math.floor(Math.random()*89999)+10000); }
+  function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
+
+  function stampEl(kind){
+    return '<span class="ministamp ' + kind + (reduced ? '' : ' slam') + '">' + kind + '</span>';
+  }
+
+  function addRow(){
+    var denied = Math.random() < 0.42;
+    var payer = pick(payers);
+    var el = document.createElement('div');
+    el.className = 'reg-row';
+    el.innerHTML =
+      '<span>' + id() + '</span>' +
+      '<span class="code">' + pick(codes) + '</span>' +
+      '<span class="payer">' + (denied ? payer + ' · ' + pick(reasons) : payer) + '</span>' +
+      '<span class="amt tnum">' + money() + '</span>' +
+      '<span class="st">' + stampEl(denied ? 'denied' : 'paid') + '</span>';
+    rows.prepend(el);
+
+    if (denied){
+      var st = el.querySelector('.st');
+      setTimeout(function(){ st.innerHTML = stampEl('appealed'); }, reduced ? 0 : 1700);
+      setTimeout(function(){
+        st.innerHTML = stampEl('paid');
+        recovered++; countEl.textContent = recovered + ' recovered';
+      }, reduced ? 0 : 3400);
+    }
+    while (rows.children.length > 7){ rows.removeChild(rows.lastChild); }
+  }
+
+  for (var i=0;i<6;i++) addRow();
+  recovered = 3; countEl.textContent = '3 recovered';
+  if (!reduced){ setInterval(addRow, 2700); }
+})();
+
+/* ---------- Service schedule ---------- */
+(function(){
+  var lines = [
+    {url:'services/revenue-cycle.html', name:'<em>Revenue Cycle</em>', note:'The wedge \u2014 start here',
+     roles:'Medical Biller \u00b7 A/R Specialist \u00b7 Denials Specialist \u00b7 Payment Posting \u00b7 Eligibility Verification \u00b7 Prior Authorization',
+     detail:'The foundational function and where most engagements begin: clean claims out daily, denials worked to root cause, A/R called down during payer business hours, and payments posted with variances flagged.'},
+    {url:'services/medical-coding.html', name:'Coding &amp; Audit', note:'Specialty differentiation',
+     roles:'Certified Coder (CPC) \u00b7 Senior Specialty Coder \u00b7 Coding Auditor \u00b7 Risk Adjustment / HCC',
+     detail:'Certified coding review and audit before claims go out \u2014 correct CPT/ICD-10 selection, modifier defense, documentation queries, and specialty-specific accuracy that separates paid-in-full from quietly underpaid.'},
+    {url:'services/credentialing.html', name:'Credentialing', note:'Sticky recurring workflow',
+     roles:'Credentialing Specialist \u00b7 Provider Enrollment \u00b7 Credentialing Lead',
+     detail:'New-provider enrollment with every payer, CAQH maintenance, revalidations, expirables tracking, and relentless follow-up on the 90\u2013120 day timelines that hold up billing for new clinicians.'},
+    {name:'CDI &amp; Documentation', note:'Documentation integrity',
+     roles:'CDI Specialist \u00b7 Documentation Reviewer \u00b7 Coding Quality Specialist',
+     detail:'Documentation quality review that supports correct coding and reimbursement \u2014 carefully scoped, non-clinical, and built to reduce the queries that stall claims.'},
+    {name:'RCM Leadership', note:'The anchor role',
+     roles:'Team Lead \u00b7 RCM Supervisor \u00b7 Revenue Cycle Manager',
+     detail:'One senior leader who owns KPIs, team performance, A/R aging, denial trends, payer escalation, and reporting \u2014 and pulls multiple junior seats behind them into a coherent function.'},
+    {url:'services/healthcare-analytics.html', name:'Healthcare Data &amp; BI', note:'From labor to intelligence',
+     roles:'Revenue Analyst \u00b7 Claims Analyst \u00b7 SQL / Power BI Analyst',
+     detail:'Claims, payer, and operational data turned into answers: why denials happen, where underpayments hide, which payers drag, and what the aging report is actually saying.'},
+    {url:'services/healthcare-technology.html', name:'Healthcare Technology', note:'Systems &amp; workflow',
+     roles:'EHR Analyst \u00b7 Implementation Specialist \u00b7 Interface &amp; Support Analyst',
+     detail:'EHR and practice-system support: implementation help, workflow configuration, reporting, interfaces, and user support \u2014 matched to the systems you actually run.'},
+    {url:'services/healthcare-finance.html', name:'Finance &amp; Accounting', note:'Shared-services expansion',
+     roles:'Healthcare Accountant \u00b7 Senior Accountant \u00b7 FP&amp;A \u00b7 Controller',
+     detail:'Financial reporting, revenue accounting, forecasting, and controls for multi-site groups, MSOs, DSOs, and platforms \u2014 the natural shared-services expansion once the RCM team is humming.'},
+    {name:'Practice Operations', note:'Non-clinical leadership',
+     roles:'Operations Manager \u00b7 Practice Manager \u00b7 Patient Experience &amp; Scheduling Lead',
+     detail:'High-value operational leadership without clinical licensure: scheduling optimization, patient experience, front-office management, and the daily coordination that keeps clinicians full.'}
+  ];
+  var grid = document.getElementById('schedule');
+  var html = '';
+  for (var i=0;i<lines.length;i++){
+    var l = lines[i];
+    html += '<details class="svc"' + (i===0 ? ' open' : '') + '>' +
+      '<summary><span class="sno">3.' + (i+1) + '</span><span class="sname">' + l.name + '</span><span class="snote">' + l.note + '</span><span class="chev" aria-hidden="true">&rsaquo;</span></summary>' +
+      '<div class="sbody"><p>' + l.detail + '</p><p class="roles">' + l.roles + '</p>' + (l.url ? '<p class="roles" style="margin-top:10px"><a href="' + l.url + '">Full service page \u2192</a></p>' : '') + '</div>' +
+      '</details>';
+  }
+  grid.innerHTML = html;
+})();
+
+/* ---------- FAQ (mirrors FAQPage schema below) ---------- */
+(function(){
+  var faqs = [
+    {q:'What does a nearshore team cost?',
+     a:'Quotes are itemized per seat and depend on role, seniority, specialty, systems experience, and team size. Every quote shows the full anatomy \u2014 the team member\u2019s compensation, employment and compliance costs, and our margin \u2014 measured against the fully-loaded US benchmark for the same seats. Model your US cost with Worksheet A above; the quote takes one call.'},
+    {q:'How do you handle HIPAA?',
+     a:'As an operating model, stated factually: a Business Associate Agreement executed before any PHI access, formal privacy and security training with documented completion for every team member, least-privilege access under credentials you control with MFA, company-managed encrypted equipment with no local PHI storage, security risk analysis with ongoing risk management, activity logging, and documented incident-response procedures. We do not display compliance badges we cannot substantiate.'},
+    {q:'Do your teams work in our systems?',
+     a:'Yes \u2014 always. Your team works inside your existing PM/EHR under accounts you provision (athenahealth, eClinicalWorks, Tebra, AdvancedMD, NextGen, and others). We never require a system migration, and on managed engagements your read access is never revoked. It is your data and your software.'},
+    {q:'Dedicated teams or managed revenue cycle \u2014 which fits?',
+     a:'It depends on whether you have billing leadership in place. Organizations with a strong RCM manager typically extend capacity with dedicated teams. Organizations without that leadership \u2014 or that want the function owned end to end with executive-level reporting \u2014 fit managed revenue cycle. We assess honestly on the first call, including when the right answer is to keep the function in-house.'},
+    {q:'What happens if a team member leaves?',
+     a:'Replacement is included, with continuity coverage during the transition \u2014 employment and retention are our responsibility. We recruit above-market in Bogot\u00e1 and Santo Domingo deliberately: paying well is the cheapest retention program that exists.'},
+    {q:'Why Colombia and the Dominican Republic?',
+     a:'Time zone and talent depth. Bogot\u00e1 operates on US Eastern Time year-round; Santo Domingo matches Eastern in summer and runs one hour ahead in winter \u2014 so payer calls happen live, during business hours. Colombia offers Latin America\u2019s deepest professional pool for US healthcare back-office work; the DR brings exceptional English fluency and years of US healthcare phone-support experience. Two delivery countries also provide geographic redundancy.'},
+    {q:'Is there a long-term contract?',
+     a:'No. Dedicated team engagements run month-to-month after an initial 90-day period. Managed revenue cycle engagements carry no long-term lock-in, and documented SOPs remain with you if you leave \u2014 continuity should be earned, not contractually enforced.'},
+    {q:'How fast can a team start?',
+     a:'Typically three to five weeks from discovery to working seats, depending on team size and vetting depth: role design on the first call, candidate interviews within one to two weeks, then secured onboarding \u2014 BAA, access provisioning, equipment verification, and workflow documentation \u2014 before go-live under structured supervision.'}
+  ];
+  var wrap = document.getElementById('faqlist');
+  var html = '';
+  for (var i=0;i<faqs.length;i++){
+    html += '<details class="qa"' + (i===0 ? ' open' : '') + '>' +
+      '<summary><span class="qno">12.' + (i+1) + '</span>' + faqs[i].q + '<span class="chev" aria-hidden="true">&rsaquo;</span></summary>' +
+      '<div class="qa-a"><p>' + faqs[i].a + '</p></div></details>';
+  }
+  wrap.innerHTML = html;
+
+  var ld = {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity": faqs.map(function(f){
+      return {"@type":"Question","name":f.q,"acceptedAnswer":{"@type":"Answer","text":f.a}};
+    })
+  };
+  var s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.textContent = JSON.stringify(ld);
+  document.head.appendChild(s);
+})();
+
+/* ---------- Worksheet A (US cost benchmark) ---------- */
+(function(){
+  var LOAD = 1.25;                 // employment load on salary
+  var EXTRA = 1500;                // amortized recruiting/equipment per seat per yr
+  var SAL = { billers:42700, ar:47000, coders:66000, mgr:95000 };
+  var qty = { billers:2, ar:1, coders:1, mgr:0 };
+
+  var stateSel  = document.getElementById('stateSel');
+  var stateOut  = document.getElementById('stateOut');
+  var usCostEl  = document.getElementById('usCost');
+  var fiveYrEl  = document.getElementById('fiveYr');
+  var seatEl    = document.getElementById('seatCount');
+
+  function fmt(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+
+  function calc(){
+    var mult = parseFloat(stateSel.value);
+    var seats = qty.billers + qty.ar + qty.coders + qty.mgr;
+    var us = (qty.billers*SAL.billers + qty.ar*SAL.ar + qty.coders*SAL.coders + qty.mgr*SAL.mgr) * LOAD * mult + seats*EXTRA;
+    usCostEl.textContent = fmt(us);
+    fiveYrEl.textContent = fmt(us*5);
+    seatEl.textContent   = seats;
+    stateOut.textContent = stateSel.options[stateSel.selectedIndex].text;
+  }
+
+  document.querySelectorAll('[data-step]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var k = btn.getAttribute('data-step');
+      var d = parseInt(btn.getAttribute('data-dir'),10);
+      qty[k] = Math.min(20, Math.max(0, qty[k]+d));
+      if (qty.billers + qty.ar + qty.coders + qty.mgr === 0){ qty[k] = 1; }  // keep at least one seat
+      document.getElementById('qtyBillers').textContent = qty.billers;
+      document.getElementById('qtyAr').textContent      = qty.ar;
+      document.getElementById('qtyCoders').textContent  = qty.coders;
+      document.getElementById('qtyMgr').textContent     = qty.mgr;
+      calc();
+    });
+  });
+  stateSel.addEventListener('change', calc);
+  calc();
+})();
+
+/* ---------- Lead form (prototype) ---------- */
+(function(){
+  var form = document.getElementById('leadform');
+  var ok = document.getElementById('formok');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('f-name');
+    var email = document.getElementById('f-email');
+    if (!name.value.trim()){ name.focus(); return; }
+    if (!email.value.trim() || email.value.indexOf('@') === -1){ email.focus(); return; }
+    ok.style.display = 'block';
+    form.querySelector('button[type=submit]').disabled = true;
+    /* DEV: replace with real endpoint/CRM wiring */
+  });
+})();
+</script>
+</body>
+</html>
